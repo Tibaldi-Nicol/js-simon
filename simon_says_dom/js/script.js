@@ -1,7 +1,7 @@
 //definizio variabili e,delle funzioni e recupero elementi dom
 //recupero elementi dom che mi servono
 const form = document.getElementById('answers-form');
-const inputField = document.querySelector('input');
+const inputField = document.querySelectorAll('input'); // Cambiato in querySelectorAll
 const countdown = document.getElementById('countdown');
 const numberList = document.getElementById('numbers-list');
 const message = document.getElementById('message');
@@ -52,7 +52,7 @@ const timer = setInterval(() => {
     countdown.innerText = --time;
     if (time === 0) {
         clearInterval(timer);
-        form.classList.remove = 'd-none';
+        form.classList.remove('d-none'); // Corretto il metodo remove
         numberList.classList.add('d-none');
         message.innerText = 'Tempo scaduto!';
         //inserisci i numeri che ricordi
@@ -60,3 +60,24 @@ const timer = setInterval(() => {
     }
 }, 1000);
 
+button.addEventListener('click', (e) => {
+    e.preventDefault();
+    //recupero il valore dell'input
+    const userNumbers = [];
+    
+    // Cicla su tutti gli input
+    inputField.forEach(input => {
+        const value = input.value.trim();
+        if (value !== '') {
+            userNumbers.push(Number(value));
+        }
+    });
+
+    // Confronta i numeri inseriti con quelli generati
+    const correctNumbers = userNumbers.filter(num => randomNumbers.includes(num));
+    
+    // Mostra il risultato
+    message.innerText = `Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(', ')}`;
+    
+    console.log(userNumbers);
+});
