@@ -77,7 +77,15 @@ button.addEventListener('click', (e) => {
     const correctNumbers = userNumbers.filter(num => randomNumbers.includes(num));
     
     // Mostra il risultato
-    message.innerText = `Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(', ')}`;
+     message.innerText = `Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(', ')}`;
     
     console.log(userNumbers);
 });
+
+//spiegazione esercizio
+//simon says
+//Il computer genera 5 numeri casuali da 1 a 50.
+//Li mostra per 10 secondi.
+//L'utente deve memorizzarli e inserirli uno alla volta.
+//Dopo aver inserito tutti i numeri, il computer mostra quanti e quali numeri sono stati indovinati.
+
