@@ -12,7 +12,7 @@ const button = document.querySelector('button');
 const min = 1;
 const max = 50;
 const totalNumbers = 5;
-const time = 10;
+let time = 10;
 let li = '';
 
 //definisco funzioni
@@ -43,3 +43,20 @@ for (let i = 0; i < randomNumbers.length; i++) {
 numberList.innerHTML = li;
 
 console.log(randomNumbers);
+
+//mostro nel dom il timer
+countdown.innerText = time;
+
+//faccio partire il countdown
+const timer = setInterval(() => {
+    countdown.innerText = --time;
+    if (time === 0) {
+        clearInterval(timer);
+        form.classList.remove = 'd-none';
+        numberList.classList.add('d-none');
+        message.innerText = 'Tempo scaduto!';
+        //inserisci i numeri che ricordi
+        instructions.innerText = 'Inserisci i numeri che ricordi';
+    }
+}, 1000);
+
